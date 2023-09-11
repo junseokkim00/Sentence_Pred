@@ -2,7 +2,7 @@
 
 ## TODO
 - [ ] Data pre-processing
-- [ ] KoBERT finetuning
+- [ ] KoGPT-2 finetuning
 
 
 
