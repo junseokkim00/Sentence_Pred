@@ -18,12 +18,14 @@ for txt in data_list:
     except:
         notContained+=1
         continue
-    inputs.append(' '.join(txt_list[:conjunction_idx+1]))
-    output.append(' '.join(txt_list[conjunction_idx+1:]))
+    # if the sentence starts with '그런데', we need to exclude those sentences
+    if conjunction_idx !=0:
+        inputs.append(' '.join(txt_list[:conjunction_idx+1]))
+        output.append(' '.join(txt_list[conjunction_idx+1:]))
 
 print(f'len(data_list): {len(data_list)}')
 print(f'notContained: {notContained}')
 
 d = {'prev': inputs, 'next': output}
 df = pd.DataFrame(data=d)
-df.to_csv('./data/train.csv')
+df.to_csv('./data/train2.csv')
