@@ -1,7 +1,7 @@
 # Sentence_Pred
 
 ## TODO
-- [ ] Data pre-processing
+- [X] Data pre-processing
 - [ ] KoGPT-2 finetuning
 
 
