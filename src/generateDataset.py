@@ -19,7 +19,7 @@ for txt in data_list:
         notContained+=1
         continue
     # if the sentence starts with '그런데', we need to exclude those sentences
-    if conjunction_idx !=0:
+    if conjunction_idx!=0:
         inputs.append(' '.join(txt_list[:conjunction_idx+1]))
         output.append(' '.join(txt_list[conjunction_idx+1:]))
 
