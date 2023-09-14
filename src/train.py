@@ -28,7 +28,7 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
     tokenizer.add_special_tokens({"pad_token": "<pad>"})
 
-    train_dataloader = GPTDataLoader(tokenizer=tokenizer, os.path.join(DATA_DIR, "train.csv"), args.batch_size)
+    train_dataloader = GPTDataLoader(tokenizer=tokenizer, file_path=os.path.join(DATA_DIR, "train.csv"), batch_size=args.batch_size)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = GPT2LMHeadModel.from_pretrained(args.model_name).to(device)
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         optimizer, num_warmup_steps=args.warmup_steps, num_training_steps=-1
     )
 
-    min_loss = int(1e-9)
+    min_loss = int(1e9)
 
     for epoch in range(args.epochs):
         print(f"Training epoch {epoch}")
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         print(f"epoch {epoch} loss {outputs[0].item():0.2f}")
 
         gen = generate("나는 밥을 먹었다. 그런데", tokenizer, model, 1)
-        print(f"{label} : {gen[0]}")
+        print(f"{gen[0]}")
 
         if outputs[0].item() < min_loss:
             min_loss = outputs[0].item()
