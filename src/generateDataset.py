@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path="./input.txt"
+file_path="./input2.txt"
 
 data_list = []
 
