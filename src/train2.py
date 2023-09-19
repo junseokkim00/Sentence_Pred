@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # model = AutoModelForCausalLM.from_pretrained(args.model_name).to(device)
-    model = AutoModelForCausalLM.from_pretrained('kakaobrain/kogpt', revision='KoGPT6B-ryan1.5b-float16', pad_token_id=tokenizer.eos_token_id,torch_dtype='auto').to(device)
+    model = AutoModelForCausalLM.from_pretrained('kakaobrain/kogpt', revision='KoGPT6B-ryan1.5b-float16', pad_token_id=tokenizer.eos_token_id,torch_dtype='auto', low_cpu_mem_usage=True).to(device='cuda', non_blocking=True)
     model.train()
 
     optimizer = AdamW(model.parameters(), lr=args.lr)
