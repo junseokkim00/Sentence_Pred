@@ -4,7 +4,7 @@ from tqdm import tqdm
 def generate(input_text, tokenizer, model, num):
     sentence_list = []
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    token_ids = tokenizer(input_text+"|", return_tensors="pt")["input_ids"].to(device)
+    token_ids = tokenizer(input_text, return_tensors="pt")["input_ids"].to(device)
     for cnt in tqdm(range(num)):
         gen_ids = model.generate(
             token_ids,

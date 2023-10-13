@@ -68,7 +68,10 @@ if __name__ == "__main__":
             mask_out = torch.where(mask_3d == 1, out, Sneg * torch.ones_like(out))
             loss = criterion(mask_out.transpose(2, 1), label)
             avg_loss = loss.sum() / mask.sum()
+            # out = model(input_ids, labels=label)
+            # loss = out[0]
             avg_loss.backward()
+            # loss.backward()
             optimizer.step()
             scheduler.step()
     
@@ -85,7 +88,10 @@ if __name__ == "__main__":
                 mask_out = torch.where(mask_3d == 1, out, Sneg * torch.ones_like(out))
                 loss = criterion(mask_out.transpose(2, 1), label)
                 avg_loss = loss.sum() / mask.sum()
+                # out = model(input_ids, labels=label)
+                # loss = out[0]
                 test_loss+=avg_loss
+                # test_loss+=loss
             test_loss/=cnt
             wandb.log({
                 "Train Loss": avg_loss,
@@ -98,6 +104,6 @@ if __name__ == "__main__":
             print(f"Output: {gen[0]}")
 
             if test_loss < min_loss:
-                min_loss = avg_loss
+                min_loss = test_loss
                 model.save_pretrained("./best_model_theRealNewVersion")
     print("Training Done")
