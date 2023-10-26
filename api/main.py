@@ -3,8 +3,6 @@ from typing import Union
 from fastapi import FastAPI
 import utils1, utils2, utils3
 
-from sen_gen_util import send_message
-
 app = FastAPI()
 
 @app.get("/")

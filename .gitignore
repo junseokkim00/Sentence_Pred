@@ -2,3 +2,4 @@ DATA/*
 naver_review_classfications_pytorch_kobert.ipynb
 .DS_Store
 src/best_model
+/Sentence_Pred_API/*
