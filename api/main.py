@@ -1,7 +1,7 @@
 from typing import Union
 
 from fastapi import FastAPI
-import utils1, utils2, utils3
+import utils1, utils2, utils3, utils4
 
 app = FastAPI()
 
@@ -25,4 +25,6 @@ def generate_1(sent: str, conj: str):
     if conj =='따라서':
         for func in utils3.utils3_list:
             res.append(func(sent)['choices'][0]['message']['content'])
+
+    res = list(map(utils4.sen_processing, res))
     return {"response": res}
