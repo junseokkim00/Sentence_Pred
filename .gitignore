@@ -3,6 +3,4 @@ naver_review_classfications_pytorch_kobert.ipynb
 .DS_Store
 src/best_model
 /Sentence_Pred_API/*
-./api/utils1.py
-./api/utils2.py
-./api/utils3.py
+api/apikey.py

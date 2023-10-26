@@ -1,8 +1,9 @@
 import re
 import openai
 import time
+from apikey import OPENAI_KEY
 
-openai.api_key = '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'
+openai.api_key = OPENAI_KEY
 
 
 def send_message_1(message):
