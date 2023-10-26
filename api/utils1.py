@@ -14,7 +14,7 @@ def send_message_1(message):
          - <역사학에서는> <사료를 중요시한다고 한다.> 그러나 <역사학에서는> <사료를 중요시하지 않는다.>\
          - <채소는> <땅에서 자라지 않는다고 한다.> 그러나 <채소는> <땅에서 자란다.>\
          - <여학생들은> <부정적인 태도를 가지고 있다고 알려져 있다.> 그러나 <여학생들은> <부정적인 태도를 안 가지고 있다.>"},
-        {"role": "user", "content": f'\'{message}\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
+        {"role": "user", "content": f'\'{message} 그러나\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
         # {"role" : "user", "content" : message}
         ]
     response = openai.ChatCompletion.create(
@@ -33,7 +33,7 @@ def send_message_2(message):
          - <알려진 것에 의하면 최근 가장 주목을 받고 있는 사람들이> <선행을 베푸는 사람들이다.> 그러나 <사실 최근 가장 주목을 받지 않고 있는 사람들이> <선행을 베푸는 사람들이다.>\
          - <비공식적인 자리에도> <사람들을 초청하였다고 한다.> 그러나 <공식적인 자리에만> <사람들을 초청하였다.>\
          - <알려진 것에 의하면 남성 학자들이> <인공 지능 개발을 중지해야 한다고 주장하고 있다.> 그러나 <사실 여성 학자들이> <인공 지능 개발을 중지해야 한다고 주장하고 있다.>"},
-        {"role": "user", "content": f'\'{message}\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
+        {"role": "user", "content": f'\'{message} 그러나나\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
         # {"role" : "user", "content" : message}
         ]
     response = openai.ChatCompletion.create(
@@ -51,7 +51,7 @@ def send_message_3(message):
             - <남자들은> <매운 국수를 좋아한다.> 그러나 <여자들은> <맵지 않은 국수를 좋아한다.>\
             - <피고는> <사건을 확대했다.> 그러나 <원고는> <사건을 축소했다.>\
             - <농촌은> <동물이 서식하기 좋은 환경이 된다.> 그러나 <도시는> <동물이 서식하기 좋은 환경이 못 된다.>"},
-        {"role": "user", "content": f'\'{message}\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
+        {"role": "user", "content": f'\'{message} 그러나나\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
         # {"role" : "user", "content" : message}
         ]
     response = openai.ChatCompletion.create(
