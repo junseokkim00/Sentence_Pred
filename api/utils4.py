@@ -1,6 +1,6 @@
-
-def sen_processing(gen_sen, user_input):
-    processed_sen = gen_sen.replace('\'','<','>')
+import re
+def sen_processing(gen_sen):
+    processed_sen = re.sub("\'|<|>", "", gen_sen)
     # processed_sen = processed_sen[:len(gen_sen)]
 
     return processed_sen

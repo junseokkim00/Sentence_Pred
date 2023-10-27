@@ -6,7 +6,7 @@ from apikey import OPENAI_KEY
 
 openai.api_key = OPENAI_KEY
 
-def send_message_1(message):
+def send_message_1_1(message):
     messages = [
         {"role": "system", "content": "너는 <A> <B.> 그러나 <A> <B 부정.> 형태로 문장을 생성해. 다음은 <A> <B.> 그러나 <A> <B 부정.>의 예시야 :\
          - <나는 밥을> <먹어야 한다.> 그러나 <나는 밥을> <먹지 않는다.>\
@@ -25,9 +25,9 @@ def send_message_1(message):
 
     return response
 
-def send_message_2(message):
+def send_message_1_2(message):
     messages = [
-        {"role": "system", "content": "너는 <A> <B.> 그런데 <A 부정> <B.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <A 부정> <B.>의 예시야 :\
+        {"role": "system", "content": "너는 <A> <B.> 그러나 <A 부정> <B.> 형태로 문장을 생성해. 다음은 <A> <B.> 그러나 <A 부정> <B.>의 예시야 :\
          - <남자가> <학교에 가려고 했다.> 그러나 <여자가> <학교에 갔다.>\
          - <내연 기관 자동차가> <많지 않다.> 그러나 <전기 자동차도> <많지 않다.>\
          - <큰 기업들도> <문을 닫고 있다고 한다.> 그러나 <작은 기업들만> <문을 닫고 있다.>\
@@ -44,9 +44,9 @@ def send_message_2(message):
 
     return response
 
-def send_message_3(message):
+def send_message_1_3(message):
     messages = [
-        {"role": "system", "content": "너는 <A> <B.> 그런데 <A 부정> <B 부정.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <A 부정> <B 부정.>의 예시야 :\
+        {"role": "system", "content": "너는 <A> <B.> 그러나 <A 부정> <B 부정.> 형태로 문장을 생성해. 다음은 <A> <B.> 그러나 <A 부정> <B 부정.>의 예시야 :\
             - <과거에는> <나쁜 영화들이 있었다.> 그러나 <현재는> <나쁜 영화들이 없다.>\
             - <과거에는> <개업하는 사람들도 있었다.> 그러나 <현재는> <폐업하는 사람들만 있다.>\
             - <남자들은> <매운 국수를 좋아한다.> 그러나 <여자들은> <맵지 않은 국수를 좋아한다.>\
@@ -62,7 +62,25 @@ def send_message_3(message):
 
     return response
 
-utils1_list = [send_message_1, send_message_2, send_message_3]
+def send_message_1_4(message):
+    messages = [
+        {"role": "system", "content": "너는 <A> <B.> 그러나 <C> <B 부정.> 형태로 문장을 생성해. <C>는 '이', '이것', '이러한 것들', '이것들' 중에 하나를 사용해. 다음은 <A> <B.> 그러나 <C> <B 부정.>의 예시야 :\
+            - <우리나라에서 가장 취약한 부문인 금융 부문부터 구조 조정이 강제로 시작되었던 것은> <대외 거래에 필요한 외환을 확보하지 못한 상황에 대한 해결 방안의 일환이었다.> 그러나 <이는> <외환 유동성 위기에 대한 해결 방안이었지, 산업 사회로부터 디지털 사회로의 전환이라는 패러다임 이행에 대한 본질적인 해결 방안은 아니었다.>\
+            - <우리나라에서 가장 취약한 부문인 금융 부문부터 구조 조정이 강제로 시작되었던 것은> <외환 유동성 위기에 대한 해결 방안이었다.> 그러나 <이것이> <산업 사회로부터 디지털 사회로의 전환이라는 패러다임 이행에 대한 본질적인 해결 방안은 아니었다.>\
+            - <우리나라에서 가장 취약한 부문인 금융 부문부터 구조 조정이 강제로 시작되었던 것은> <외환 유동성 위기에 대한 해결 방안이었다.> 그러나 <이렇게> <우리나라에서 가장 취약한 부문인 금융 부문부터 구조 조정이 강제로 시작되었던 것이 산업 사회로부터 디지털 사회로의 전환이라는 패러다임 이행에 대한 본질적인 해결 방안은 아니었다.>\
+            - <중간고사에 좋은 점수를 받는 것은> <최종 성적을 높이는데 영향을 준다.> 그러나 <이는> <최종성적을 항상 높여주지는 못한다.>\
+            - <환경오염을 줄이기 위해 행해지는 노력들은> <지구온난화의 가속화를 막아준다.> 그러나 <이러한 것들은> <지구온난화의 가속화를 항상 막아줄 수 없다.>"},
+        {"role": "user", "content": f'\'{message} 그러나\' 뒤에 나올 문장을 끊지 말고 하나 생성해줘.'}
+        # {"role" : "user", "content" : message}
+        ]
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-0613",
+        messages=messages
+    )
+
+    return response
+
+utils1_list = [send_message_1_1, send_message_1_2, send_message_1_3, send_message_1_4]
 
 # def send_message_4(message):
 #     messages = [

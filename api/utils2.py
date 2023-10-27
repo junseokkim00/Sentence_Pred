@@ -6,7 +6,7 @@ from apikey import OPENAI_KEY
 openai.api_key = OPENAI_KEY
 
 
-def send_message_1(message):
+def send_message_2_1(message):
     messages = [
         {"role": "system", "content": "너는 <A> <B.> 그런데 <B> <C.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <B> <C.>의 예시야 :\
          - <파이썬은> <프로그래밍 언어이다.> 그런데 <프로그래밍 언어는> <컴퓨터와 소통하는 도구이다.>\
@@ -25,7 +25,7 @@ def send_message_1(message):
 
     return response
 
-def send_message_2(message):
+def send_message_2_2(message):
     messages = [
         {"role": "system", "content": "너는 <A> <B.> 그런데 <C> <B.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <C> <B.>의 예시야 :\
          - <지금은> <농번기이다.> 그런데 <현재 우리나라에서는 모낼 때, 논맬 때, 추수할 때가> <이러한 농번기이다.>\
@@ -43,7 +43,7 @@ def send_message_2(message):
     return response
 
 
-def send_message_3(message):
+def send_message_2_3(message):
     messages = [
         {"role": "system", "content": "너는 <A> <B.> 그런데 <A> <C.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <A> <C.>의 예시야 :\
          - <영수는> <영화 평론가이다.> 그런데 <이러한 영수는> <영화 한 편을 여러 번 감상하는 습관이 있다.>\
@@ -60,7 +60,7 @@ def send_message_3(message):
 
     return response
 
-def send_message_4(message):
+def send_message_2_4(message):
     messages = [
         {"role": "system", "content": "너는 <A> <B.> 그런데 <C> <A.> 형태로 문장을 생성해. 다음은 <A> <B.> 그런데 <C> <A.>의 예시야 :\
          - <영희는> <학생이다.> 그런데 <얼마 전 인공 지능의 자연어 처리 논문을 발표하였던 사람이> <이러한 영희이다.> \
@@ -77,4 +77,4 @@ def send_message_4(message):
 
     return response
 
-utils2_list = [send_message_1, send_message_2, send_message_3, send_message_4]
+utils2_list = [send_message_2_1, send_message_2_2, send_message_2_3, send_message_2_4]
