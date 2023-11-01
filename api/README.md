@@ -42,5 +42,5 @@ output
 ## Connection with AWS Server
 
 + EC2-ubuntu server from AWS
-+ elastic IP address: 13.50.75.185
-+ API call 부르기: `GET http://13.50.75.185/{conj}/{sent}`
++ elastic IP address: [13.51.73.116](http://13.51.73.116/)
++ API call 부르기: `GET [http://13.51.73.116/](http://13.51.73.116/){conj}/{sent}`
