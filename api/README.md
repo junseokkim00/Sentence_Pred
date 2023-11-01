@@ -29,5 +29,18 @@ $ uvicorn main:app
 input
 + conj: `그런데`
 + sent: `나는 밥을 먹었다.`
++ API call: `GET /그런데/나는 밥을 먹었다.`
 
+
+output
 ![Alt text](image.png)
+
+
+
+
+
+## Connection with AWS Server
+
++ EC2-ubuntu server from AWS
++ elastic IP address: 13.50.75.185
++ API call 부르기: `GET http://13.50.75.185/{conj}/{sent}`
