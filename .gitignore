@@ -4,3 +4,4 @@ naver_review_classfications_pytorch_kobert.ipynb
 src/best_model
 /Sentence_Pred_API/*
 api/apikey.py
+/src/sen_gen.py

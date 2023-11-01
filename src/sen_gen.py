@@ -4,7 +4,7 @@ import openai
 import time
 
 # Set up your OpenAI API credentials
-openai.api_key = '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'
+openai.api_key = 'your api key'
 txt_path = './generated_sents.txt'
 
 def send_message(message):
